@@ -4,25 +4,23 @@ using System.Text;
 
 namespace LabClases5.Clases
 {
-    internal class Juego : Jugada
+    internal class Juego
     {
         private int _record;
         private Jugada _jugada;
 
-        public Juego(int maxNumero) : base(maxNumero) 
-        {
-            
-        }
-
-        public Jugada ComenzarJuego()
+        public void ComenzarJuego()
         {
             while (this.Continuar())
             {
                 _jugada = new Jugada(this.PreguntarMaximo());
                 Console.WriteLine("Iniciaste un nuevo juego");
-                _jugada.Comparar(this.PreguntarNumero());
+                do
+                {
+                    _jugada.Comparar(this.PreguntarNumero());
+                   
+                }while (this.Continuar());
                 this.CompararRecord();
-                this.Continuar();
             }
             Console.WriteLine("Adios");
             Console.ReadKey();
@@ -42,7 +40,7 @@ namespace LabClases5.Clases
             {
                 Console.WriteLine("Igualaste el record");
             }
-            if (_jugada.Intento > _record)
+            if (_jugada.Intento < _record)
             {
                 Console.WriteLine("Nuevo record de Intentos");
                 _jugada.Intento = _record;
@@ -57,14 +55,13 @@ namespace LabClases5.Clases
         {
             Console.WriteLine("Ingrese un numero Máximo");
             int max = Int32.Parse(Console.ReadLine());
-            return max
+            return max;
         }
 
         public bool Continuar()
         {
             Console.WriteLine("¿Desea continuar jugando? Ingrese S o N");
-            string rta = Console.ReadLine();
-            rta.ToUpper();
+            string rta = (Console.ReadLine().ToUpper());
             if (rta == "S")
             {
                 return true;
