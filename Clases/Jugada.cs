@@ -27,7 +27,6 @@ namespace LabClases5.Clases
             if (this.Numero == num) 
             {
                 Console.WriteLine("¡Adivinaste!");
-                this.Intento = 0;
                 this.Adivino = "Adivinado";
             }
             else
@@ -37,11 +36,6 @@ namespace LabClases5.Clases
 
 
             }
-        }
-
-        public void PreguntarMaximo()
-        {
-            
         }
 
 

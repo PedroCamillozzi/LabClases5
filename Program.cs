@@ -7,6 +7,9 @@ namespace LabClases5
     {
         static void Main(string[] args)
         {
+            Juego juego = new Juego();
+
+            juego.ComenzarJuego();
             
         }
     }
